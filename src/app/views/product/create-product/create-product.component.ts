@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-create-product',
@@ -9,13 +10,21 @@ import { Product } from 'src/app/models/product';
 })
 export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
+  products: Array<Product> = [];
 
   @ViewChild('inputNameProduct') inputNameProduct: ElementRef<HTMLInputElement>;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private productService: ProductService
+  ) {}
 
   ngOnInit() {
     this.builderFormProduct(new Product());
+    this.productService.getAllProducts().subscribe((res) => {
+      this.products = res;
+      console.log(this.products);
+    });
   }
 
   builderFormProduct(product: Product) {
@@ -26,7 +35,12 @@ export class CreateProductComponent implements OnInit {
   }
 
   saveProduct() {
-    console.log(this.productForm.value);
+    this.productService.createProduct(this.productForm.value).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => console.log(error)
+    );
     this.productForm.reset();
     this.inputNameProduct.nativeElement.focus();
   }
