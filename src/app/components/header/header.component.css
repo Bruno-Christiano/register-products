@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  background-color: rgb(29, 28, 28);
+}
+
+.header__logo {
+  display: flex;
+  width: 10%;
+  flex-direction: column;
+}
+
+.logo--icon {
+  color: #ffffff;
+}
+
+.header__title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.title--text {
+  color: #ffffff;
+}

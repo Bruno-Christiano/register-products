@@ -1,0 +1,11 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer__title {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
