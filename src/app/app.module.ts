@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from './components/components.module';
 import { ViewsModule } from './views/views.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { ViewsModule } from './views/views.module';
     BrowserAnimationsModule,
     ComponentsModule,
     ViewsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
