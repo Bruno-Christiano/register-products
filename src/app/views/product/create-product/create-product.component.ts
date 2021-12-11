@@ -47,15 +47,11 @@ export class CreateProductComponent implements OnInit {
     this.productService.createProduct(this.productForm.value).subscribe(
       (res) => {
         console.log(res);
-        this._snackBar.open(
-          `Product ${res.name.toUpperCase()} successfully created!`,
-          'x',
-          {
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
-            duration: 2000,
-          }
-        );
+        this._snackBar.open(`Product successfully created!`, 'x', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+          duration: 2000,
+        });
       },
       (error) => console.log(error)
     );

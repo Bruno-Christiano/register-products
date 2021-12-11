@@ -11,8 +11,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { DisplayProductComponent } from './product/display-product/display-product.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
-  declarations: [HomeComponent, ProductComponent, CreateProductComponent],
+  declarations: [
+    HomeComponent,
+    ProductComponent,
+    CreateProductComponent,
+    DisplayProductComponent,
+  ],
   imports: [
     CommonModule,
     MatCardModule,
@@ -23,6 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   exports: [HomeComponent, ProductComponent],
 })
