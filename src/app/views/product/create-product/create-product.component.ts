@@ -1,5 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,11 +17,15 @@ export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
   products: Array<Product> = [];
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   @ViewChild('inputNameProduct') inputNameProduct: ElementRef<HTMLInputElement>;
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService
+    private productService: ProductService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -38,6 +47,15 @@ export class CreateProductComponent implements OnInit {
     this.productService.createProduct(this.productForm.value).subscribe(
       (res) => {
         console.log(res);
+        this._snackBar.open(
+          `Product ${res.name.toUpperCase()} successfully created!`,
+          'x',
+          {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+            duration: 2000,
+          }
+        );
       },
       (error) => console.log(error)
     );

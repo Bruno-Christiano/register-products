@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [HomeComponent, ProductComponent, CreateProductComponent],
   imports: [
@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   exports: [HomeComponent, ProductComponent],
 })
