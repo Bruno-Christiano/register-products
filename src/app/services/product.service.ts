@@ -21,4 +21,14 @@ export class ProductService {
     const url = this.baseUrl;
     return this.http.post<Product>(url, product);
   }
+
+  updateProduct(id: number, prodcut: Product): Observable<Product> {
+    const url = `${this.baseUrl} / ${id}, ${prodcut}`;
+    return this.http.put<Product>(url, prodcut);
+  }
+
+  removeProduct(id: number): Observable<Product> {
+    const url = `${this.baseUrl} / ${id}`;
+    return this.http.delete<Product>(url);
+  }
 }

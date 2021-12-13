@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -16,10 +17,18 @@ export class DisplayProductComponent implements OnInit {
   ngOnInit() {
     this.productService.getAllProducts().subscribe((res) => {
       this.products = res;
+      console.log(res);
     });
   }
 
-  inProgress() {
-    alert('IN PROGRES...');
+  deleteProduct(id: number) {
+    this.productService.removeProduct(id).subscribe(
+      (res) => {
+        console.log('removed!');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
