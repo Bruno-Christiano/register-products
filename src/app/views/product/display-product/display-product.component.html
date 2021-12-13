@@ -23,8 +23,8 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let row">
-         <button (click)="inProgress()" mat-raised-button color="primary">Edit </button>
-         <button (click)="inProgress()" mat-raised-button color="warn" style="margin-left: 1%;"> Delete </button>
+         <button mat-raised-button color="primary">Edit </button>
+         <button (click)="deleteProduct(row.price)" mat-raised-button color="warn" style="margin-left: 1%;"> Delete </button>
         </td>
     </ng-container>
 
