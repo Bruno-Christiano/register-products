@@ -1,4 +1,6 @@
 # Products
+# Description
+Um sistema de crud simples usando o Angular, consumindo uma api "fake" do Json-server. (Api no heroku https://github.com/Bruno-Christiano/product-api-fake)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
