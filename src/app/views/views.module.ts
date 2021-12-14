@@ -14,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { DisplayProductComponent } from './product/display-product/display-product.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ProductComponent,
     CreateProductComponent,
     DisplayProductComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     CommonModule,
