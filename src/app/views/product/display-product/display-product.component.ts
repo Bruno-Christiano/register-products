@@ -15,16 +15,21 @@ export class DisplayProductComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
+    this.retrieveAllProducts();
+  }
+
+  retrieveAllProducts() {
     this.productService.getAllProducts().subscribe((res) => {
       this.products = res;
       console.log(res);
     });
   }
 
-  deleteProduct(id: number) {
+  deleteProduct(id: any) {
     this.productService.removeProduct(id).subscribe(
       (res) => {
         console.log('removed!');
+        this.retrieveAllProducts();
       },
       (error) => {
         console.log(error);

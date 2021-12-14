@@ -1,0 +1,20 @@
+
+<mat-card style="display: flex; flex-direction: column; width: 50%; margin: 2% auto;">
+  <form [formGroup]="productForm">
+    <mat-card-title> Edit Product:</mat-card-title>
+    <mat-form-field class="formField" appearance="outline">
+      <mat-label>Name Product</mat-label>
+      <input #inputNameProduct formControlName="name" matInput placeholder="Name Product" [value]="product?.name">
+      <mat-hint class="msg--error" *ngIf="productForm.controls.name.errors && name?.touched ">Enter the <strong>Name product</strong></mat-hint>
+    </mat-form-field>
+    <mat-form-field class="formField" appearance="outline">
+      <mat-label>Price Product</mat-label>
+      <input formControlName="price" type="number" matInput placeholder="Price Product"  [value]="product?.price">
+      <mat-hint class="msg--error" *ngIf="productForm.controls.price.errors && price?.touched">Enter the <strong>Price product</strong></mat-hint>
+    </mat-form-field>
+  </form>
+  <div class="cardActions">
+    <button mat-raised-button color="primary" [disabled]="productForm.invalid" (click)="updateProduct()">Save</button>
+    <button routerLink="/list-products"class="cardActions--btn" mat-raised-button color="accent">Cancel</button>
+  </div>
+</mat-card>

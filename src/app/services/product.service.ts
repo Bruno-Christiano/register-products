@@ -17,18 +17,23 @@ export class ProductService {
     return this.http.get<Product[]>(url);
   }
 
+  getProductById(id: any): Observable<Product> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Product>(url);
+  }
+
   createProduct(product: Product): Observable<Product> {
     const url = this.baseUrl;
     return this.http.post<Product>(url, product);
   }
 
-  updateProduct(id: number, prodcut: Product): Observable<Product> {
-    const url = `${this.baseUrl} / ${id}, ${prodcut}`;
-    return this.http.put<Product>(url, prodcut);
+  updateProduct(product: Product): Observable<Product> {
+    const url = `${this.baseUrl}/${product.id}`;
+    return this.http.put<Product>(url, product);
   }
 
   removeProduct(id: number): Observable<Product> {
-    const url = `${this.baseUrl} / ${id}`;
+    const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Product>(url);
   }
 }
