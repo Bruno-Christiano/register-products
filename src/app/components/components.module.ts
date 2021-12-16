@@ -9,9 +9,20 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+
+import { CardDisplayProductComponent } from './card-display-product/card-display-product.component';
+import { MsgComponent } from './msg/msg.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidenavComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    SidenavComponent,
+    CardDisplayProductComponent,
+    MsgComponent,
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -20,7 +31,15 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatButtonModule,
     RouterModule,
+    MatCardModule,
+    MatTableModule,
   ],
-  exports: [HeaderComponent, FooterComponent, SidenavComponent],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SidenavComponent,
+    CardDisplayProductComponent,
+    MsgComponent,
+  ],
 })
 export class ComponentsModule {}

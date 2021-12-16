@@ -9,8 +9,8 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./display-product.component.scss'],
 })
 export class DisplayProductComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'price', 'action'];
   products: Product[];
+  text: string = 'Is empty table!';
 
   constructor(private productService: ProductService) {}
 
@@ -28,7 +28,6 @@ export class DisplayProductComponent implements OnInit {
   deleteProduct(id: any) {
     this.productService.removeProduct(id).subscribe(
       (res) => {
-        console.log('removed!');
         this.retrieveAllProducts();
       },
       (error) => {
